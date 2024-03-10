@@ -1,0 +1,449 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+
+<Defs>
+
+	<ThingDef Name="BaseServiceWeapon" Abstract="True" ParentName="BaseWeapon">
+		<graphicData>
+		<drawSize>1.2</drawSize>
+			<graphicClass>Graphic_Single</graphicClass>
+		</graphicData>
+		<uiIconScale>1.2</uiIconScale>
+		<soundInteract>Interact_Revolver</soundInteract>
+		<destroyOnDrop>true</destroyOnDrop>
+		<tradeability>None</tradeability>
+		<techLevel>Archotech</techLevel>
+		<weaponTags>
+			<li>SpacerGun</li>
+		</weaponTags>
+		<weaponClasses>
+			<li>RangedLight</li>
+		</weaponClasses>
+		<statBases>
+			<Mass>1.4</Mass>
+		</statBases>
+		<tools>
+			<li Class="AthenaFramework.Tool_Shockwave">
+				<label>shockwave</label>
+				<cooldownTime>5</cooldownTime>
+				<explosionDamageDef>Bomb</explosionDamageDef>
+				<explosionDamage>5</explosionDamage>
+				<doExplosionVFX>true</doExplosionVFX>
+				<explosionRadius>1.8</explosionRadius>
+			</li>
+			<li>
+				<label>melee</label>
+				<capacities>
+					<li>Blunt</li>
+				</capacities>
+				<power>2</power>
+				<cooldownTime>2</cooldownTime>
+				<extraMeleeDamages>
+					<li>
+						<def>Stun</def>
+						<amount>15</amount>
+					</li>
+				</extraMeleeDamages>
+			</li>
+		</tools>
+		<comps>
+			<li Class="ServiceWeapon.CompProperties_DestroyOnUnequip"/>
+		</comps>
+	</ThingDef>
+
+	<ThingDef Name="BaseServiceBullet" Abstract="True" ParentName="BaseBullet">
+		<graphicData>
+			<drawSize>0.8</drawSize>
+		</graphicData>
+		<comps>
+			<li Class="AthenaFramework.CompProperties_ProjectileImpactEffect">
+				<fleck>PsycastAreaEffect</fleck>
+			</li>
+		</comps>
+	</ThingDef>
+
+	<!--Grip-->
+	<ThingDef Name="BaseGripForm" Abstract="False" ParentName="BaseServiceWeapon">
+		<defName>Artemiish_SWGrip_Jesse</defName>
+		<label>service weapon (grip)</label>
+		<description>A standard sidearm form similar to a revolver. It has a good range and average damage. This is the default form of the Service Weapon, and suitable for most encounters.</description>
+		<graphicData>
+			<texPath>ArtemiishThings/Weapons/Grip_Jesse/GripForm</texPath>
+		</graphicData>
+		<statBases>
+			<AccuracyTouch>0.8</AccuracyTouch>
+			<AccuracyShort>0.7</AccuracyShort>
+			<AccuracyMedium>0.4</AccuracyMedium>
+			<AccuracyLong>0.3</AccuracyLong>
+			<RangedWeapon_Cooldown>1.2</RangedWeapon_Cooldown>
+		</statBases>
+		<verbs>
+			<li>
+				<verbClass>Verb_Shoot</verbClass>
+				<hasStandardCommand>true</hasStandardCommand>
+				<defaultProjectile>Artemiish_GripProj</defaultProjectile>
+				<warmupTime>0.5</warmupTime>
+				<range>22.9</range>
+				<soundCast>Shot_Revolver</soundCast>
+				<soundCastTail>GunTail_Light</soundCastTail>
+				<muzzleFlashScale>9</muzzleFlashScale>
+			</li>
+		</verbs>
+		<modExtensions>
+			<li Class="AthenaFramework.DamageModifierExtension">
+				<outgoingModifiers>
+					<li>
+						<attackerStatDefs>
+							<li>PsychicSensitivity</li>
+						</attackerStatDefs>
+						<targetStatDefs>
+							<li>PsychicSensitivity</li>
+						</targetStatDefs>
+						<offset>6</offset>
+					</li>
+				</outgoingModifiers>
+			</li>
+		</modExtensions>
+	</ThingDef>
+	
+	<ThingDef ParentName="BaseServiceBullet">
+		<defName>Artemiish_GripProj</defName>
+		<label>grip form projectile</label>
+		<graphicData>
+			<texPath>ArtemiishThings/Projectiles/GripProj</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<shaderType>TransparentPostLight</shaderType>
+			<drawSize>1.05</drawSize>
+		</graphicData>
+		<projectile>
+			<damageDef>Bullet</damageDef>
+			<damageAmountBase>6</damageAmountBase>
+			<armorPenetrationBase>0.35</armorPenetrationBase>
+			<speed>70</speed>
+		</projectile>
+	</ThingDef>
+
+	<!--Shatter-->
+	<ThingDef Name="BaseShatterForm" Abstract="False" ParentName="BaseServiceWeapon">
+		<defName>Artemiish_SWShatter_Jesse</defName>
+		<label>service weapon (shatter)</label>
+		<description>A form similar to a shotgun with a tight spread angle and short effective range, most suitable for close encounters.</description>
+		<graphicData>
+			<texPath>ArtemiishThings/Weapons/Shatter_Jesse/ShatterForm</texPath>
+		</graphicData>
+		<statBases>
+			<AccuracyTouch>0.7</AccuracyTouch>
+			<AccuracyShort>0.67</AccuracyShort>
+			<AccuracyMedium>0.57</AccuracyMedium>
+			<AccuracyLong>0.54</AccuracyLong>
+			<RangedWeapon_Cooldown>1.8</RangedWeapon_Cooldown>
+		</statBases>
+		<verbs>
+			<li>
+				<verbClass>Verb_Shoot</verbClass>
+				<hasStandardCommand>true</hasStandardCommand>
+				<defaultProjectile>Artemiish_ShatterProj</defaultProjectile>
+				<warmupTime>0.5</warmupTime>
+				<range>14.9</range>
+				<burstShotCount>2</burstShotCount>
+				<ticksBetweenBurstShots>20</ticksBetweenBurstShots>
+				<soundCast>Shot_Shotgun</soundCast>
+				<soundCastTail>GunTail_Heavy</soundCastTail>
+				<muzzleFlashScale>9</muzzleFlashScale>
+			</li>
+		</verbs>
+		<modExtensions>
+			<li Class="AthenaFramework.DamageModifierExtension">
+				<outgoingModifiers>
+					<li>
+						<attackerStatDefs>
+							<li>PsychicSensitivity</li>
+						</attackerStatDefs>
+						<targetStatDefs>
+							<li>PsychicSensitivity</li>
+						</targetStatDefs>
+						<offset>12</offset>
+					</li>
+				</outgoingModifiers>
+			</li>
+		</modExtensions>
+	</ThingDef>
+	
+	<ThingDef ParentName="BaseServiceBullet">
+		<defName>Artemiish_ShatterProj</defName>
+		<label>shatter form blast</label>
+		<graphicData>
+			<texPath>ArtemiishThings/Projectiles/ShatterProj</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<shaderType>TransparentPostLight</shaderType>
+		</graphicData>
+		<projectile>
+			<damageDef>Bullet</damageDef>
+			<damageAmountBase>12</damageAmountBase>
+			<armorPenetrationBase>0.45</armorPenetrationBase>
+			<stoppingPower>3</stoppingPower>
+			<speed>60</speed>
+		</projectile>
+	</ThingDef>
+
+	<!--Spin-->
+	<ThingDef Name="BaseSpinForm" Abstract="False" ParentName="BaseServiceWeapon">
+		<defName>Artemiish_SWSpin_Jesse</defName>
+		<label>service weapon (spin)</label>
+		<description>A rapid-fire form with lower accuracy and average damage, but a significantly higher rate of fire. Good for medium range combat.</description>
+		<graphicData>
+			<texPath>ArtemiishThings/Weapons/Spin_Jesse/SpinForm</texPath>
+		</graphicData>
+		<statBases>
+			<AccuracyTouch>0.4</AccuracyTouch>
+			<AccuracyShort>0.44</AccuracyShort>
+			<AccuracyMedium>0.3</AccuracyMedium>
+			<AccuracyLong>0.21</AccuracyLong>
+			<RangedWeapon_Cooldown>2.2</RangedWeapon_Cooldown>
+		</statBases>
+		<verbs>
+			<li>
+				<verbClass>Verb_Shoot</verbClass>
+				<hasStandardCommand>true</hasStandardCommand>
+				<defaultProjectile>Artemiish_SpinProj</defaultProjectile>
+				<warmupTime>0.5</warmupTime>
+				<range>27.9</range>
+				<burstShotCount>18</burstShotCount>
+				<ticksBetweenBurstShots>5</ticksBetweenBurstShots>
+				<soundCast>Shot_Minigun</soundCast>
+				<soundCastTail>GunTail_Medium</soundCastTail>
+				<muzzleFlashScale>9</muzzleFlashScale>
+			</li>
+		</verbs>
+		<modExtensions>
+			<li Class="AthenaFramework.DamageModifierExtension">
+				<outgoingModifiers>
+					<li>
+						<attackerStatDefs>
+							<li>PsychicSensitivity</li>
+						</attackerStatDefs>
+						<targetStatDefs>
+							<li>PsychicSensitivity</li>
+						</targetStatDefs>
+						<offset>6</offset>
+					</li>
+				</outgoingModifiers>
+			</li>
+		</modExtensions>
+	</ThingDef>
+	
+	<ThingDef ParentName="BaseServiceBullet">
+		<defName>Artemiish_SpinProj</defName>
+		<label>spin form projectile</label>
+		<graphicData>
+			<texPath>ArtemiishThings/Projectiles/SpinProj</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+		</graphicData>
+		<projectile>
+			<damageDef>Bullet</damageDef>
+			<damageAmountBase>6</damageAmountBase>
+			<armorPenetrationBase>0.35</armorPenetrationBase>
+			<stoppingPower>1</stoppingPower>
+			<speed>60</speed>
+		</projectile>
+	</ThingDef>
+
+	<!--Pierce-->
+	<ThingDef Name="BasePierceForm" Abstract="False" ParentName="BaseServiceWeapon">
+		<defName>Artemiish_SWPierce_Jesse</defName>
+		<label>service weapon (pierce)</label>
+		<description>A form that charges a powerful, single shot. The initial charge and cooldown of this form cause it to be heavily reliant on user accuracy.</description>
+		<graphicData>
+			<texPath>ArtemiishThings/Weapons/Pierce_Jesse/PierceForm</texPath>
+		</graphicData>
+		<statBases>
+			<AccuracyTouch>0.7</AccuracyTouch>
+			<AccuracyShort>0.73</AccuracyShort>
+			<AccuracyMedium>0.86</AccuracyMedium>
+			<AccuracyLong>0.88</AccuracyLong>
+			<RangedWeapon_Cooldown>3</RangedWeapon_Cooldown>
+		</statBases>
+		<verbs>
+			<li>
+				<verbClass>Verb_Shoot</verbClass>
+				<hasStandardCommand>true</hasStandardCommand>
+				<defaultProjectile>Artemiish_PierceProj</defaultProjectile>
+				<warmupTime>0.5</warmupTime>
+				<range>39.9</range>
+				<soundCast>Shot_SniperRifle</soundCast>
+				<soundCastTail>GunTail_Heavy</soundCastTail>
+				<muzzleFlashScale>9</muzzleFlashScale>
+			</li>
+		</verbs>
+		<modExtensions>
+			<li Class="AthenaFramework.DamageModifierExtension">
+				<outgoingModifiers>
+					<li>
+						<attackerStatDefs>
+							<li>PsychicSensitivity</li>
+						</attackerStatDefs>
+						<targetStatDefs>
+							<li>PsychicSensitivity</li>
+						</targetStatDefs>
+						<offset>10</offset>
+					</li>
+				</outgoingModifiers>
+			</li>
+		</modExtensions>
+	</ThingDef>
+	
+	<ThingDef ParentName="BaseServiceBullet">
+		<defName>Artemiish_PierceProj</defName>
+		<label>pierce form projectile</label>
+		<graphicData>
+			<texPath>ArtemiishThings/Projectiles/PierceProj</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+		</graphicData>
+		<projectile>
+			<damageDef>Bullet</damageDef>
+			<damageAmountBase>15</damageAmountBase>
+			<armorPenetrationBase>0.65</armorPenetrationBase>
+			<stoppingPower>1.5</stoppingPower>
+			<speed>80</speed>
+		</projectile>
+	</ThingDef>
+
+	<!--Charge-->
+	<ThingDef Name="BaseChargeForm" Abstract="False" ParentName="BaseServiceWeapon">
+		<defName>Artemiish_SWCharge_Jesse</defName>
+		<label>service weapon (charge)</label>
+		<description>A form capable of firing powerful rounds that cause explosive are of effect damage. Effective at breaching structures.</description>
+		<graphicData>
+			<texPath>ArtemiishThings/Weapons/Charge_Jesse/ChargeForm</texPath>
+		</graphicData>
+		<statBases>
+			<AccuracyTouch>0.8</AccuracyTouch>
+			<AccuracyShort>0.87</AccuracyShort>
+			<AccuracyMedium>0.77</AccuracyMedium>
+			<AccuracyLong>0.64</AccuracyLong>
+			<RangedWeapon_Cooldown>4.2</RangedWeapon_Cooldown>
+		</statBases>
+		<verbs>
+			<li>
+				<verbClass>Verb_Shoot</verbClass>
+				<hasStandardCommand>true</hasStandardCommand>
+				<defaultProjectile>Artemiish_ChargeProj</defaultProjectile>
+				<ai_IsBuildingDestroyer>true</ai_IsBuildingDestroyer>
+				<forcedMissRadius>1.9</forcedMissRadius>
+				<warmupTime>0.5</warmupTime>
+				<range>24.9</range>
+				<targetParams>
+					<canTargetLocations>true</canTargetLocations>
+				</targetParams>
+				<soundCast>ThumpCannon_Fire</soundCast>
+				<soundCastTail>GunTail_Heavy</soundCastTail>
+				<muzzleFlashScale>9</muzzleFlashScale>
+				<noiseRadius>4</noiseRadius>
+			</li>
+		</verbs>
+		<modExtensions>
+			<li Class="AthenaFramework.DamageModifierExtension">
+				<outgoingModifiers>
+					<li>
+						<attackerStatDefs>
+							<li>PsychicSensitivity</li>
+						</attackerStatDefs>
+						<targetStatDefs>
+							<li>PsychicSensitivity</li>
+						</targetStatDefs>
+						<offset>6</offset>
+					</li>
+				</outgoingModifiers>
+			</li>
+		</modExtensions>
+	</ThingDef>
+	
+	<ThingDef ParentName="BaseServiceBullet">
+		<defName>Artemiish_ChargeProj</defName>
+		<label>charge form bomb</label>
+		<graphicData>
+			<texPath>ArtemiishThings/Projectiles/ChargeProj</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+		</graphicData>
+		<thingClass>Projectile_Explosive</thingClass>
+		<projectile>
+			<damageDef>Thump</damageDef>
+			<damageAmountBase>6</damageAmountBase>
+			<explosionRadius>1.7</explosionRadius>
+			<stoppingPower>3</stoppingPower>
+			<speed>50</speed>
+			<soundExplode>ThumpCannon_Impact</soundExplode>
+		</projectile>
+	</ThingDef>
+	
+	<!--Surge-->
+	<ThingDef Name="BaseSurgeForm" Abstract="False" ParentName="BaseServiceWeapon">
+		<defName>Artemiish_SWSurge_Jesse</defName>
+		<label>service weapon (surge)</label>
+		<description>A form wich can fire explosives that detonate after a  short delay.</description>
+		<graphicData>
+			<texPath>ArtemiishThings/Weapons/Surge_Jesse/SurgeForm</texPath>
+		</graphicData>
+		<statBases>
+			<AccuracyTouch>0.80</AccuracyTouch>
+			<AccuracyShort>0.87</AccuracyShort>
+			<AccuracyMedium>0.77</AccuracyMedium>
+			<AccuracyLong>0.64</AccuracyLong>
+			<RangedWeapon_Cooldown>4.5</RangedWeapon_Cooldown>
+		</statBases>
+		<verbs>
+			<li>
+				<verbClass>Verb_Shoot</verbClass>
+				<hasStandardCommand>true</hasStandardCommand>
+				<defaultProjectile>Artemiish_SurgeProj</defaultProjectile>
+				<warmupTime>0.5</warmupTime>
+				<range>23.9</range>
+				<forcedMissRadius>2.9</forcedMissRadius>
+				<burstShotCount>1</burstShotCount>
+				<soundCast>Shot_IncendiaryLauncher</soundCast>
+				<soundCastTail>GunTail_Medium</soundCastTail>
+				<muzzleFlashScale>14</muzzleFlashScale>
+				<targetParams>
+					<canTargetLocations>true</canTargetLocations>
+				</targetParams>
+			</li>
+		</verbs>
+		<modExtensions>
+			<li Class="AthenaFramework.DamageModifierExtension">
+				<outgoingModifiers>
+					<li>
+						<attackerStatDefs>
+							<li>PsychicSensitivity</li>
+						</attackerStatDefs>
+						<targetStatDefs>
+							<li>PsychicSensitivity</li>
+						</targetStatDefs>
+						<offset>10</offset>
+					</li>
+				</outgoingModifiers>
+			</li>
+		</modExtensions>
+	</ThingDef>
+	
+	<ThingDef ParentName="BaseServiceBullet">
+		<defName>Artemiish_SurgeProj</defName>
+		<label>surge form explosive</label>
+		<graphicData>
+			<texPath>ArtemiishThings/Projectiles/SurgeProj</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+		</graphicData>
+		<thingClass>Projectile_Explosive</thingClass>
+		<projectile>
+			<speed>40</speed>
+			<damageDef>Bomb</damageDef>
+			<damageAmountBase>15</damageAmountBase>
+			<explosionRadius>1.7</explosionRadius>
+			<preExplosionSpawnThingDef>Filth_RubbleRock</preExplosionSpawnThingDef>
+			<preExplosionSpawnChance>0.3</preExplosionSpawnChance>
+			<ai_IsIncendiary>false</ai_IsIncendiary>
+			<arcHeightFactor>0.55</arcHeightFactor>
+			<shadowSize>0.6</shadowSize>
+			<explosionDelay>60</explosionDelay>
+		</projectile>
+	</ThingDef>
+
+</Defs>

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Patch>
+
+	<Operation Class="PatchOperationFindMod">
+		<mods>
+			<li>Vanilla Weapons Expanded - Heavy Weapons</li>
+		</mods>
+		<match Class="PatchOperationReplace">
+			<xpath>/Defs/HediffDef[defName="Artemiish_ServiceWeaponHediff_Jesse"]/comps</xpath>
+			<value>
+				<comps>
+            <li Class="ServiceWeapon.HediffCompProperties_DoOnDeath">
+		        <drop>Artemiish_ServiceWeaponImplant_Jesse</drop>
+		        <fleck>PsycastAreaEffect</fleck>
+	            <sound>Shot_Revolver</sound>
+			    <filth>Filth_Blood</filth>
+            </li>
+	        <li Class="HediffCompProperties_GiveAbility">
+                <abilityDefs>
+                    <li>Artemiish_AbilityGrip_Jesse</li>
+			        <li>Artemiish_AbilityShatter_Jesse</li>
+			        <li>Artemiish_AbilitySpin_Jesse</li>
+			        <li>Artemiish_AbilityPierce_Jesse</li>
+			        <li>Artemiish_AbilityCharge_Jesse</li>
+			        <li>Artemiish_AbilitySurge_Jesse</li>
+					<li>Artemiish_AbilityHeavy</li>
+                </abilityDefs>
+            </li>
+        </comps>
+			</value>
+		</match>
+	</Operation>
+
+</Patch>
