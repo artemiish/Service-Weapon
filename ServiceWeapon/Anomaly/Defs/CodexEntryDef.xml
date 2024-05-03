@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+  <EntityCodexEntryDef>
+    <defName>Artemiish_ServiceWeapon</defName>
+    <label>service weapon</label>
+    <useDescriptionFrom>Artemiish_ServiceWeaponImplant</useDescriptionFrom>
+    <uiIconPath>ArtemiishThings/UI/ServiceWeapon</uiIconPath>
+    <category>Advanced</category>
+    <linkedThings>
+      <li>Artemiish_ServiceWeaponImplant</li>
+    </linkedThings>
+    <provocationIncidents>
+      <li>Artemiish_ServiceWeaponArrival</li>
+    </provocationIncidents>
+    <discoveredResearchProjects>
+      <li>Artemiish_ServiceWeaponRemoval</li>
+    </discoveredResearchProjects>
+    <orderInCategory>1450</orderInCategory>
+  </EntityCodexEntryDef>
+
+</Defs>

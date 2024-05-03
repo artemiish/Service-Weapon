@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<LanguageData>
+
+	<ServiceWeaponArrivalLabel>Strange Structure</ServiceWeaponArrivalLabel>
+	<ServiceWeaponArrivalText>A strange structure has appeared nearby. There is something on it.</ServiceWeaponArrivalText>
+
+	<ServiceWeaponPsyReq>Not enough psychic sensitivity</ServiceWeaponPsyReq>
+
+	<ServiceWeaponInstallWarning>The Service Weapon will be unusable by pawn with no psychic sesitivity. Are you sure you want to continue?</ServiceWeaponInstallWarning>
+
+</LanguageData>

@@ -3,7 +3,7 @@
 	<name>Service Weapon</name>
 	<author>Artemiish</author>
 	<supportedVersions>
-		<li>1.4</li>
+		<li>1.5</li>
 	</supportedVersions>
 	<packageId>Artemiish.ServiceWeapon</packageId>
 	<description>The Service Weapon from the game Control.</description>
@@ -20,8 +20,8 @@
 		<li>Ludeon.RimWorld.Royalty</li>
 		<li>Ludeon.RimWorld.Ideology</li>
 		<li>Ludeon.RimWorld.Biotech</li>
+		<li>Ludeon.RimWorld.Anomaly</li>
 		<li>VanillaExpanded.VWEC</li>
-		<li>automatic.gunplay</li>
 		<li>smartkar.athenaframework</li>
 	</loadAfter>
 </ModMetaData>

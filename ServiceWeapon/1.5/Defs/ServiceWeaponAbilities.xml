@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Defs>
+
+	<!--Abilities-->
+    <AbilityDef Name="BaseServiceWeaponAbility" Abstract="True">
+	    <displayGizmoWhileUndrafted>False</displayGizmoWhileUndrafted>
+		<targetRequired>false</targetRequired>
+		<hostile>false</hostile>
+		<cooldownTicksRange>60</cooldownTicksRange>
+		<verbProperties>
+			<verbClass>Verb_CastAbility</verbClass>
+			<warmupTime>0.1</warmupTime>
+			<range>25.9</range>
+			<drawAimPie>false</drawAimPie>
+			<targetParams>
+				<canTargetSelf>true</canTargetSelf>
+			</targetParams>
+		</verbProperties>
+	</AbilityDef>
+		
+	<!--Jesse-->
+	<AbilityDef ParentName="BaseServiceWeaponAbility">
+        <defName>Artemiish_AbilityGrip</defName>
+        <label>grip form</label>
+        <description>Morph the weapon into the grip form.</description>
+        <iconPath>ArtemiishThings/UI/GripForm</iconPath>
+        <comps>
+            <li Class="ServiceWeapon.CompProperties_WeaponMaker">
+		        <itemDef>Artemiish_SWGrip</itemDef>
+		        <fleck>PsycastAreaEffect</fleck>
+		        <sound>Standard_Reload</sound>
+                <clamorType>Ability</clamorType>
+                <clamorRadius>25.9</clamorRadius>
+            </li>
+			<li Class="ServiceWeapon.CompProperties_AbilityRequirement">
+				<statDef>PsychicSensitivity</statDef>
+				<statValue>0.1</statValue>
+			</li>
+        </comps>
+    </AbilityDef>
+
+	<AbilityDef ParentName="BaseServiceWeaponAbility">
+		<defName>Artemiish_AbilityShatter</defName>
+		<label>shatter form</label>
+		<description>Morph the weapon into the shatter form.</description>
+		<iconPath>ArtemiishThings/UI/ShatterForm</iconPath>
+		<comps>
+			<li Class="ServiceWeapon.CompProperties_WeaponMaker">
+				<itemDef>Artemiish_SWShatter</itemDef>
+				<fleck>PsycastAreaEffect</fleck>
+				<sound>Standard_Reload</sound>
+				<clamorType>Ability</clamorType>
+				<clamorRadius>20</clamorRadius>
+			</li>
+			<li Class="ServiceWeapon.CompProperties_AbilityRequirement">
+				<statDef>PsychicSensitivity</statDef>
+				<statValue>1</statValue>
+			</li>
+		</comps>
+	</AbilityDef>
+	
+	<AbilityDef ParentName="BaseServiceWeaponAbility">
+        <defName>Artemiish_AbilitySpin</defName>
+        <label>spin form</label>
+        <description>Morph the weapon into the spin form.</description>
+        <iconPath>ArtemiishThings/UI/SpinForm</iconPath>
+        <comps>
+            <li Class="ServiceWeapon.CompProperties_WeaponMaker">
+		        <itemDef>Artemiish_SWSpin</itemDef>
+		        <fleck>PsycastAreaEffect</fleck>
+		        <sound>Standard_Reload</sound>
+                <clamorType>Ability</clamorType>
+                <clamorRadius>22.9</clamorRadius>
+            </li>
+			<li Class="ServiceWeapon.CompProperties_AbilityRequirement">
+				<statDef>PsychicSensitivity</statDef>
+				<statValue>1</statValue>
+			</li>
+        </comps>
+    </AbilityDef>
+	
+	<AbilityDef ParentName="BaseServiceWeaponAbility">
+        <defName>Artemiish_AbilityPierce</defName>
+        <label>píerce form</label>
+        <description>Morph the weapon into the pierce form.</description>
+        <iconPath>ArtemiishThings/UI/PierceForm</iconPath>
+        <comps>
+            <li Class="ServiceWeapon.CompProperties_WeaponMaker">
+		        <itemDef>Artemiish_SWPierce</itemDef>
+		        <fleck>PsycastAreaEffect</fleck>
+		        <sound>Standard_Reload</sound>
+                <clamorType>Ability</clamorType>
+                <clamorRadius>39.9</clamorRadius>
+            </li>
+			<li Class="ServiceWeapon.CompProperties_AbilityRequirement">
+				<statDef>PsychicSensitivity</statDef>
+				<statValue>1</statValue>
+			</li>
+        </comps>
+    </AbilityDef>
+	
+	<AbilityDef ParentName="BaseServiceWeaponAbility">
+        <defName>Artemiish_AbilityCharge</defName>
+        <label>charge form</label>
+        <description>Morph the weapon into the charge form.</description>
+        <iconPath>ArtemiishThings/UI/ChargeForm</iconPath>
+        <comps>
+            <li Class="ServiceWeapon.CompProperties_WeaponMaker">
+		        <itemDef>Artemiish_SWCharge</itemDef>
+		        <fleck>PsycastAreaEffect</fleck>
+		        <sound>Standard_Reload</sound>
+                <clamorType>Ability</clamorType>
+                <clamorRadius>24.9</clamorRadius>
+            </li>
+			<li Class="ServiceWeapon.CompProperties_AbilityRequirement">
+				<statDef>PsychicSensitivity</statDef>
+				<statValue>1.2</statValue>
+			</li>
+        </comps>
+    </AbilityDef>
+	
+	<AbilityDef ParentName="BaseServiceWeaponAbility">
+        <defName>Artemiish_AbilitySurge</defName>
+        <label>surge form</label>
+        <description>Morph the weapon into the surge form.</description>
+        <iconPath>ArtemiishThings/UI/SurgeForm</iconPath>
+        <comps>
+            <li Class="ServiceWeapon.CompProperties_WeaponMaker">
+		        <itemDef>Artemiish_SWSurge</itemDef>
+		        <fleck>PsycastAreaEffect</fleck>
+		        <sound>Standard_Reload</sound>
+                <clamorType>Ability</clamorType>
+                <clamorRadius>23.9</clamorRadius>
+            </li>
+			<li Class="ServiceWeapon.CompProperties_AbilityRequirement">
+				<statDef>PsychicSensitivity</statDef>
+				<statValue>1.2</statValue>
+			</li>
+        </comps>
+    </AbilityDef>
+
+</Defs>
