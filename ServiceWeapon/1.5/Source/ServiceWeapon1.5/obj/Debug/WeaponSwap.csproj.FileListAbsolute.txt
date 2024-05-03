@@ -1,0 +1,5 @@
+C:\Users\henri\Documents\Rimworld\RimWorld.v1.4.3704\RimWorld.v1.4.3704\Mods\ServiceWeapon\1.4\Assemblies\WeaponSwap.dll
+C:\Users\henri\Documents\Rimworld\RimWorld.v1.4.3704\RimWorld.v1.4.3704\Mods\ServiceWeapon\Source\WeaponSwap\obj\Debug\WeaponSwap.csproj.AssemblyReference.cache
+C:\Users\henri\Documents\Rimworld\RimWorld.v1.4.3704\RimWorld.v1.4.3704\Mods\ServiceWeapon\Source\WeaponSwap\obj\Debug\WeaponSwap.csproj.CoreCompileInputs.cache
+C:\Users\henri\Documents\Rimworld\RimWorld.v1.4.3704\RimWorld.v1.4.3704\Mods\ServiceWeapon\Source\WeaponSwap\obj\Debug\WeaponSwap.dll
+C:\Users\henri\Documents\Rimworld\RimWorld.v1.4.3704\RimWorld.v1.4.3704\Mods\ServiceWeapon\Source\WeaponSwap\obj\Debug\WeaponSwap.csproj.CopyComplete
